@@ -1,0 +1,19 @@
+BEGIN-DATA
+        NUM=10
+        POTENCIA=?
+        CONTADOR=?
+        RES=?
+END-DATA
+
+BEGIN-CODE
+        MOV [NUM], [RES]
+        MOV [POTENCIA],[CONTADOR]
+        BUCLE:	SUB [CONTADOR],1
+		MOV AC,[CONTADOR]
+		CMP [CONTADOR],0
+		JE  FIN
+		MUL [RES],[NUM]
+		MOV AC,[RES]
+		JMP BUCLE
+FIN:	TERM		; se detiene la máquina
+END-CODE
